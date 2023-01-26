@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DeckOfCards.Models.CardApi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Index">Draw 5 More</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.suit)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                    <img src="@item.image" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.suit)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
